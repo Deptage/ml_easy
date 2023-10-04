@@ -73,6 +73,13 @@ plt.legend(['train', 'test'], loc='upper left')
 plt.show()
 
 y_pred=model.predict(X_test)
-plt.plot(X_test,y_pred)
-plt.plot(X_test,y_test,'o')
+
+sorted_indices = np.argsort(X_test)
+X_test_sorted = X_test[sorted_indices]
+y_pred_sorted = y_pred[sorted_indices]
+y_test_sorted = y_test[sorted_indices]
+
+plt.plot(X_test_sorted, y_test_sorted, 'o', label='Actual',markersize=1)
+plt.plot(X_test_sorted, y_pred_sorted, label='Predictions')
+plt.legend()
 plt.show()

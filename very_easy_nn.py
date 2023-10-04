@@ -71,3 +71,8 @@ plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(['train', 'test'], loc='upper left')
 plt.show()
+
+y_pred=model.predict(X_test)
+plt.plot(X_test,y_pred)
+plt.plot(X_test,y_test,'o')
+plt.show()
